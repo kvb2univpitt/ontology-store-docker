@@ -1,0 +1,8 @@
+[
+    { "code": "PM", "forceLoading": true },
+    { "code": "ONT"	},
+    { "code": "ONTSTORE"	},
+    { "code": "CRC"	},
+    { "code": "PLUGIN", "forceLoading": true },
+    { "code": "WORK" }
+]
