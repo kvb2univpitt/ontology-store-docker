@@ -95,8 +95,10 @@ psql -v ON_ERROR_STOP=1 --username "i2b2hive" --dbname "i2b2" <<-EOSQL
 EOSQL
 
 # test case to run
+/var/lib/postgresql/test_case_${TEST_CASE_NUMBER}.sh
+
 # /var/lib/postgresql/test_case_1.sh
-/var/lib/postgresql/test_case_2.sh
+# /var/lib/postgresql/test_case_2.sh
 # /var/lib/postgresql/test_case_3.sh
 # /var/lib/postgresql/test_case_4.sh
 

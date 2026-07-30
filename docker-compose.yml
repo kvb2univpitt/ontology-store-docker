@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile
     environment:
       - POSTGRES_PASSWORD=demouser
+      - TEST_CASE_NUMBER=2
     container_name: i2b2-data-demo
     networks:
       - i2b2-demo-net
@@ -21,6 +22,8 @@ services:
     build:
       context: i2b2-core-server-demo/postgresql
       dockerfile: Dockerfile
+      args:
+        - TEST_CASE_NUMBER=2
     container_name: i2b2-core-server-demo
     networks:
       - i2b2-demo-net
@@ -29,6 +32,12 @@ services:
         condition: service_healthy
     ports:
       - 9090:9090
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://i2b2-core-server-demo:9990/health/live"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+      start_period: 30s
   i2b2-webclient-demo:
     image: local/ontstore-i2b2-webclient-demo:v1.8.3
     build:
